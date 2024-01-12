@@ -8,7 +8,8 @@ export const TaskAddInput = ({
   }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTaskList([...taskList, { text: inputText }]);
+    if (inputText === "") return;
+    setTaskList([...taskList, { id: taskList.length, text: inputText }]);
     setInputText("");
   }
   const handleChange = (event) => {
