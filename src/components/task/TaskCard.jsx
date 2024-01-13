@@ -5,13 +5,19 @@ import { TaskAddInput } from './input/TaskAddInput'
 import { Tasks } from './Tasks'
 import { useState } from 'react'
 
-export const TaskCard = () => {
+export const TaskCard = ({ taskCardsList, setTaskCardsList, taskCard }) => {
   const [inputText, setInputText] = useState("");
   const [taskList, setTaskList] = useState([]);
   return (
     <div className="taskCard">
-        <TaskCardTitle />
-        <TaskCardDeleteButton />
+        <div className="taskCardTitleAndTaskCardDelebuttonArea">
+          <TaskCardTitle />
+          <TaskCardDeleteButton 
+            taskCardsList={taskCardsList}
+            setTaskCardsList={setTaskCardsList}
+            taskCard={taskCard}
+          />
+        </div>
         <TaskAddInput 
             inputText={inputText}
             setInputText={setInputText}
